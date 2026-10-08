@@ -1,0 +1,6 @@
+144/12 k=6: 120 active snapshots of 288 in 1830s
+              served  worst
+F_th method                
+0.80 FiSER-W   0.862  0.421
+0.85 FiSER-W   0.643  0.267
+0.90 FiSER-W   0.212  0.096

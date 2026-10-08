@@ -1,0 +1,6 @@
+144/12 k=6: 115 active snapshots of 288 in 355s
+             served  worst
+F_th method               
+0.80 FiSER    1.000  0.354
+0.85 FiSER    0.745  0.222
+0.90 FiSER    0.295  0.114

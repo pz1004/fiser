@@ -1,0 +1,16 @@
+=== results/journal/ground (T = inf s)
+nsfnet: 316 served designs | recompute max error 5.8e-15 | MC on 30 paths: min binomial p 0.068 | simultaneous starts: fidelity loss mean 0.0000, max 0.0000; 0 designs (0.0%) would miss F_th
+cost239: 258 served designs | recompute max error 3.8e-15 | MC on 30 paths: min binomial p 0.027 | simultaneous starts: fidelity loss mean 0.0000, max 0.0000; 0 designs (0.0%) would miss F_th
+usnet: 934 served designs | recompute max error 5.4e-15 | MC on 30 paths: min binomial p 0.008 | simultaneous starts: fidelity loss mean 0.0000, max 0.0000; 0 designs (0.0%) would miss F_th
+=== results/journal/ground_T1 (T = 1.0 s)
+nsfnet: 310 served designs | recompute max error 6.8e-15 | MC on 30 paths: min binomial p 0.006 | simultaneous starts: fidelity loss mean 0.0003, max 0.0021; 27 designs (8.7%) would miss F_th
+cost239: 258 served designs | recompute max error 6.7e-15 | MC on 30 paths: min binomial p 0.008 | simultaneous starts: fidelity loss mean 0.0001, max 0.0019; 8 designs (3.1%) would miss F_th
+usnet: 921 served designs | recompute max error 6.0e-15 | MC on 30 paths: min binomial p 0.036 | simultaneous starts: fidelity loss mean 0.0002, max 0.0018; 69 designs (7.5%) would miss F_th
+=== results/journal/ground_T0.1 (T = 0.1 s)
+nsfnet: 274 served designs | recompute max error 8.2e-15 | MC on 30 paths: min binomial p 0.013 | simultaneous starts: fidelity loss mean 0.0028, max 0.0191; 100 designs (36.5%) would miss F_th
+cost239: 250 served designs | recompute max error 3.7e-15 | MC on 30 paths: min binomial p 0.002 | simultaneous starts: fidelity loss mean 0.0014, max 0.0151; 35 designs (14.0%) would miss F_th
+usnet: 806 served designs | recompute max error 8.9e-15 | MC on 30 paths: min binomial p 0.058 | simultaneous starts: fidelity loss mean 0.0019, max 0.0171; 231 designs (28.7%) would miss F_th
+=== results/journal/ground_T0.01 (T = 0.01 s)
+nsfnet: 59 served designs | recompute max error 1.2e-16 | MC on 30 paths: min binomial p 0.064 | simultaneous starts: fidelity loss mean 0.0094, max 0.0611; 8 designs (13.6%) would miss F_th
+cost239: 116 served designs | recompute max error 2.8e-16 | MC on 30 paths: min binomial p 0.041 | simultaneous starts: fidelity loss mean 0.0077, max 0.0396; 26 designs (22.4%) would miss F_th
+usnet: 173 served designs | recompute max error 1.2e-16 | MC on 30 paths: min binomial p 0.044 | simultaneous starts: fidelity loss mean 0.0050, max 0.0299; 25 designs (14.5%) would miss F_th

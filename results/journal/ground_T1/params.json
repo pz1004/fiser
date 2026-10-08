@@ -1,0 +1,36 @@
+{
+  "phys": {
+    "att_db_per_km": 0.2,
+    "eta_det": 0.5,
+    "attempts": 50,
+    "w0": 0.98,
+    "l_dec_km": 500.0,
+    "q_swap": 0.9,
+    "lam_swap": 0.99,
+    "max_level": 2,
+    "w0_spread": 0.0,
+    "seed": 0,
+    "t_coh_s": 1.0,
+    "c_km_s": 200000.0
+  },
+  "max_link_km": 100.0,
+  "scale": null,
+  "paths": 2,
+  "K": [
+    20,
+    10
+  ],
+  "fth": [
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9
+  ],
+  "topologies": [
+    "nsfnet",
+    "cost239",
+    "usnet"
+  ],
+  "s_min": 0.01
+}

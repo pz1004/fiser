@@ -1,0 +1,26 @@
+# Allowlist: only the entries below are published; everything else at the top level stays local.
+/*
+!/.gitignore
+!/LICENSE
+!/README.md
+!/requirements.txt
+!/fiser/
+!/experiments/
+!/tests/
+!/assets/
+!/results/
+
+# Results: only the runs behind the paper
+/results/*
+!/results/journal/
+/results/journal/multirequest*
+
+# Exploratory or superseded scripts
+/experiments/run_multirequest.py
+/experiments/run_all_satellite.sh
+/experiments/run_weather.sh
+
+# Generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/

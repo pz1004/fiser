@@ -1,0 +1,24 @@
+144/12 k=0: 1 active snapshots of 1 in 0s
+             served  worst
+F_th method               
+0.80 FiSER    1.000  0.743
+0.85 FiSER    1.000  0.631
+0.90 FiSER    0.782  0.341
+144/12 k=2: 113 active snapshots of 288 in 177s
+             served  worst
+F_th method               
+0.80 FiSER     1.00  0.747
+0.85 FiSER     1.00  0.638
+0.90 FiSER     0.81  0.342
+144/12 k=4: 114 active snapshots of 288 in 264s
+             served  worst
+F_th method               
+0.80 FiSER    1.000  0.759
+0.85 FiSER    1.000  0.659
+0.90 FiSER    0.844  0.354
+144/12 k=6: 114 active snapshots of 288 in 508s
+             served  worst
+F_th method               
+0.80 FiSER    1.000  0.762
+0.85 FiSER    1.000  0.668
+0.90 FiSER    0.865  0.371

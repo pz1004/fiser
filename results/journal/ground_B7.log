@@ -1,0 +1,63 @@
+NSFNET: 91 pairs, 5 thresholds, 6.2s wall
+COST239: 55 pairs, 5 thresholds, 3.8s wall
+USNET: 276 pairs, 5 thresholds, 47.9s wall
+
+COST239  F_th=0.70
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0    10.63
+
+COST239  F_th=0.75
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0     8.97
+
+COST239  F_th=0.80
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0    10.40
+
+COST239  F_th=0.85
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0    10.61
+
+COST239  F_th=0.90
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0     4.96
+
+NSFNET  F_th=0.70
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0    22.46
+
+NSFNET  F_th=0.75
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0    22.18
+
+NSFNET  F_th=0.80
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0    22.46
+
+NSFNET  F_th=0.85
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0     7.37
+
+NSFNET  F_th=0.90
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0     3.84
+
+USNET  F_th=0.70
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0   203.67
+
+USNET  F_th=0.75
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0   207.36
+
+USNET  F_th=0.80
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0   138.05
+
+USNET  F_th=0.85
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0    80.15
+
+USNET  F_th=0.90
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  FiSER      0/0              nan        nanx         0    34.96

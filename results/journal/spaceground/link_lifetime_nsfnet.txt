@@ -1,0 +1,2 @@
+nsfnet, 6 OGS: 2638 offered satellite links at 300-s snapshots | residual lifetime median 2.2 min, mean 2.4 min | lasting >= 1 min 81%, >= 2 min 58%, >= 5 min 5%
+re-provisioning all 91 requests of one threshold per snapshot (single core): MILP median 54.4 s, heuristic median 7.1 s

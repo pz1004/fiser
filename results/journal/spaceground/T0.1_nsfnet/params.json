@@ -1,0 +1,68 @@
+{
+  "phys": {
+    "att_db_per_km": 0.2,
+    "eta_det": 0.5,
+    "attempts": 50,
+    "w0": 0.98,
+    "l_dec_km": 500.0,
+    "q_swap": 0.9,
+    "lam_swap": 0.99,
+    "max_level": 2,
+    "w0_spread": 0.0,
+    "seed": 0,
+    "t_coh_s": 0.1,
+    "c_km_s": 200000.0
+  },
+  "sat": {
+    "total": 144,
+    "planes": 12,
+    "phasing": 1,
+    "inclination_deg": 53.0,
+    "altitude_km": 550.0,
+    "el_min_deg": 20.0,
+    "wavelength_m": 8.1e-07,
+    "tx_waist_m": 0.025,
+    "rx_radius_m": 0.6,
+    "eta_atm_zenith": 0.5,
+    "eta_sys": 0.25,
+    "attempts": 1000000,
+    "F_sat": 0.91,
+    "max_level": 2,
+    "night_only": true,
+    "sun_limit_deg": -12.0,
+    "sats_per_pair": 3,
+    "epoch": "2027-03-20T12:00:00"
+  },
+  "args": {
+    "topology": "nsfnet",
+    "ogs": [
+      0,
+      6
+    ],
+    "constellations": [
+      "144/12"
+    ],
+    "fth": [
+      0.8,
+      0.85,
+      0.9
+    ],
+    "methods": [
+      "FiSER"
+    ],
+    "hours": 24.0,
+    "step_s": 300,
+    "center": [
+      39.0,
+      -98.0
+    ],
+    "max_link_km": 100.0,
+    "sat": [],
+    "param": [
+      "t_coh_s=0.1"
+    ],
+    "paths": 2,
+    "workers": 24,
+    "out": "results/journal/spaceground/T0.1_nsfnet"
+  }
+}

@@ -1,0 +1,1 @@
+cost239, 6 OGS: 3698 offered satellite links at 300-s snapshots | residual lifetime median 2.5 min, mean 2.6 min | lasting >= 1 min 84%, >= 2 min 63%, >= 5 min 8%

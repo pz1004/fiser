@@ -1,0 +1,123 @@
+NSFNET: 91 pairs, 5 thresholds, 4.6s wall
+COST239: 55 pairs, 5 thresholds, 2.9s wall
+USNET: 276 pairs, 5 thresholds, 23.7s wall
+
+COST239  F_th=0.70
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        47/55          0.4164      1.000x         0     1.85
+  B2        55/55          0.4479      1.000x         0     1.85
+  B3        54/55          0.3799      0.693x         1     1.20
+  B5        55/55          0.4260      0.879x         2     2.09
+  FiSER     55/55          0.4539      1.061x         3     4.66
+
+COST239  F_th=0.75
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        36/55          0.3463      1.000x         0     1.85
+  B2        53/55          0.4025      1.000x         0     1.85
+  B3        47/55          0.3709      0.897x         6     1.20
+  B5        53/55          0.3933      0.951x         8     2.35
+  FiSER     55/55          0.4191      1.095x        12     6.99
+
+COST239  F_th=0.80
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        24/55          0.2689      1.000x         0     1.85
+  B2        44/55          0.3254      1.000x         0     1.85
+  B3        42/55          0.3416      1.132x         8     1.20
+  B5        44/55          0.3380      1.240x         9     2.26
+  FiSER     47/55          0.3527      1.269x        12     6.00
+
+COST239  F_th=0.85
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        11/55          0.1530      1.000x         0     1.85
+  B2        28/55          0.2124      1.000x         0     1.85
+  B3        33/55          0.2205      0.980x         6     1.20
+  B5        32/55          0.2197      1.002x         6     1.57
+  FiSER     33/55          0.2208      1.002x         6     3.48
+
+COST239  F_th=0.90
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1         0/55          0.0000        nanx         0     1.85
+  B2        14/55          0.0971      1.000x         0     1.85
+  B3        15/55          0.0972      1.000x         1     1.20
+  B5        15/55          0.0972      1.000x         1     0.97
+  FiSER     15/55          0.0972      1.000x         1     1.60
+
+NSFNET  F_th=0.70
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        34/91          0.1308      1.000x         0     3.70
+  B2        64/91          0.1557      1.000x         0     3.71
+  B3        60/91          0.1472      0.872x         4     2.04
+  B5        63/91          0.1556      1.023x         4     3.47
+  FiSER     67/91          0.1574      1.029x         5    16.39
+
+NSFNET  F_th=0.75
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        18/91          0.1092      1.000x         0     3.70
+  B2        42/91          0.1275      1.000x         0     3.71
+  B3        35/91          0.1231      1.017x         2     2.04
+  B5        43/91          0.1284      1.012x         2     3.45
+  FiSER     43/91          0.1285      1.014x         2    13.92
+
+NSFNET  F_th=0.80
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        11/91          0.0945      1.000x         0     3.70
+  B2        19/91          0.1032      1.000x         0     3.71
+  B3        19/91          0.1032      1.000x         0     2.04
+  B5        19/91          0.1032      1.000x         0     2.49
+  FiSER     19/91          0.1032      1.000x         0     4.88
+
+NSFNET  F_th=0.85
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1         9/91          0.0830      1.000x         0     3.70
+  B2        12/91          0.0944      1.000x         0     3.71
+  B3        12/91          0.0944      1.000x         0     2.04
+  B5        12/91          0.0944      1.000x         0     1.88
+  FiSER     12/91          0.0944      1.000x         0     2.65
+
+NSFNET  F_th=0.90
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1         2/91          0.0198      1.000x         0     3.70
+  B2        10/91          0.0746      1.000x         0     3.71
+  B3        10/91          0.0746      1.000x         0     2.03
+  B5        10/91          0.0746      1.000x         0     1.32
+  FiSER     10/91          0.0746      1.000x         0     2.15
+
+USNET  F_th=0.70
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1       110/276         0.2137      1.000x         0    16.73
+  B2       170/276         0.2448      1.000x         0    16.76
+  B3       176/276         0.2462      1.012x        22     9.94
+  B5       161/276         0.2294      0.938x        23    14.74
+  FiSER    179/276         0.2517      1.078x        27   108.51
+
+USNET  F_th=0.75
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        58/276         0.1296      1.000x         0    16.73
+  B2       135/276         0.1851      1.000x         0    16.75
+  B3       140/276         0.1926      1.047x        24     9.93
+  B5       127/276         0.1815      0.979x        26    15.71
+  FiSER    144/276         0.1944      1.064x        29    66.31
+
+USNET  F_th=0.80
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1        38/276         0.0897      1.000x         0    16.73
+  B2        99/276         0.1197      1.000x         0    16.75
+  B3       103/276         0.1251      1.089x        17     9.93
+  B5        96/276         0.1246      1.130x        18    14.05
+  FiSER    103/276         0.1257      1.122x        19    44.24
+
+USNET  F_th=0.85
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1         7/276         0.0202      1.000x         0    16.73
+  B2        49/276         0.0533      1.000x         0    16.74
+  B3        50/276         0.0561      1.131x         7     9.92
+  B5        50/276         0.0561      1.131x         7    10.58
+  FiSER     50/276         0.0561      1.131x         7    24.78
+
+USNET  F_th=0.90
+  method     served  mean worst S   geo vs B2    >B2+1%  time[s]
+  B1         0/276         0.0000        nanx         0    16.73
+  B2        17/276         0.0143      1.000x         0    16.74
+  B3        18/276         0.0144      1.000x         1     9.92
+  B5        18/276         0.0144      1.000x         1     6.64
+  FiSER     18/276         0.0144      1.000x         1    12.66

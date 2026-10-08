@@ -1,0 +1,1 @@
+usnet, 6 OGS: 2493 offered satellite links at 300-s snapshots | residual lifetime median 2.2 min, mean 2.3 min | lasting >= 1 min 79%, >= 2 min 57%, >= 5 min 4%

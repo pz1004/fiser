@@ -1,0 +1,5 @@
+  n  F_th  instances  milp_served  heur_served  heur_optimal  mean_gap_pct  t_milp_mean  t_milp_max  t_heur_mean  t_heur_max
+200  0.75         90           43           43            90      5.68e-15        3.369        14.3       0.4928       2.113
+200   0.8         90           19           19            90     2.922e-15        2.395       13.91        0.244      0.6984
+400  0.75         90           38           38            90     5.551e-15        6.709       27.56       0.7432       2.502
+400   0.8         90           25           25            90    -8.882e-16        9.397       67.28       0.4101       1.372

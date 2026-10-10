@@ -185,41 +185,78 @@ def coherence():
           + f"; FiSER >= B2, B3 everywhere: {bool((sv['0.1'].FiSER >= sv['0.1'][['B2', 'B3']].max(axis=1)).all())}")
 
 
+def _shortfalls(s_opt, s_h):
+    """(S*, S_H) of the instances FiSER serves where H is not optimal; S_H is taken before the floor."""
+    s_h = s_h.fillna(0.0)
+    bad = (s_opt >= S_MIN) & (s_h < s_opt * (1 - 1e-6))
+    return list(zip(s_opt[bad], s_h[bad]))
+
+
+def _describe(short, n_served):
+    return (f"H optimal on {n_served - len(short)} of {n_served} served"
+            + (f" (others at {', '.join(f'{b / a:.3f}' for a, b in short)} of the optimum)" if short else ""))
+
+
+def _rerun_missed(idx, s_opt):
+    """Rerun H with more candidates per later path on the satellite instances it fails to serve."""
+    if not len(idx):
+        return
+    from run_spaceground import _context  # experiments/ is on sys.path when this script runs
+    from fiser.heuristic import disjoint_paths
+    meta = json.loads((J / "spaceground" / "heuristic_nsfnet" / "params.json").read_text())
+    a = meta["args"]
+    sg = _context(a["topology"], meta["phys"], meta["sat"], a["ogs"][0], np.arange(0, a["hours"] * 3600, a["step_s"]),
+                  tuple(a["center"]), a["max_link_km"])[1]
+    for ti, s, d, F in idx:
+        snap, vals = sg.snapshot(ti), []
+        for k2 in (10, 20):
+            sol = disjoint_paths(snap, s, d, F, 2, 20, k2)
+            vals.append(min(p.S for p in sol.paths) if sol.paths else 0.0)
+        print(f"  missed at snapshot {ti}, pair {s}-{d}: H {vals[0]:.5f} with kappa2 = 10 and {vals[1]:.5f} "
+              f"with kappa2 = 20; optimum {s_opt[(ti, s, d, F)]:.5f}")
+
+
 def heuristic():
     print("\n=== VI-F Heuristic and scalability")
-    tot_served = tot_nonopt = 0
+    tot_served, short = 0, []  # pooled over the default-setting tests of Sections VI-F and VI-G
     for run in ("ground", "ground_alpha2"):
-        df = load(run)
+        df, raw = load(run), load(run, s_min=0.0)
         f = df[df.method == "FiSER"].set_index(KEY)
-        h = df[df.method == "H"].set_index(KEY).reindex(f.index)
-        opt = (h.worst >= f.worst * (1 - 1e-6)) & f.served
-        ratios = (h.worst / f.worst)[f.served & ~opt]
-        print(f"{run}: H optimal on {int(opt.sum())} of {int(f.served.sum())} served requests"
-              + (f" (others at {', '.join(f'{v:.2f}' for v in ratios)} of the optimum)" if len(ratios) else "")
-              + f"; runtime H/MILP {h.runtime.sum() / f.runtime.sum():.2f}")
+        h = raw[raw.method == "H"].set_index(KEY).reindex(f.index)
+        s = _shortfalls(f.worst, h.worst)
+        print(f"{run}: {_describe(s, int(f.served.sum()))}; runtime H/MILP {h.runtime.sum() / f.runtime.sum():.2f}")
         tot_served += int(f.served.sum())
-        tot_nonopt += int((f.served & ~opt).sum())
+        short += s
     for run in ("scaling", "scaling_alpha2", "scaling_fast", "scaling_large"):
         df = pd.read_csv(J / run / "scaling.csv")
         feas = df.milp >= S_MIN
-        opt = (df.heur >= df.milp * (1 - 1e-6)) & feas
+        s = _shortfalls(df.milp, df.heur)
         speed = df.groupby("n").t_milp.mean() / df.groupby("n").t_heur.mean()
         print(f"{run}: MILP {df.t_milp.mean():.2f} s per request on average, at most {df.t_milp.max():.1f} s; "
               f"heuristic at most {df.t_heur.max():.1f} s; speedup {df.t_milp.mean() / df.t_heur.mean():.1f}x "
               f"(per size {', '.join(f'{n}: {v:.1f}x' for n, v in speed.items())}); "
-              f"H optimal on {int(opt.sum())} of {int(feas.sum())} served")
+              + _describe(s, int(feas.sum())))
         if run != "scaling_fast":
             tot_served += int(feas.sum())
-            tot_nonopt += int((feas & ~opt).sum())
-    h = apply_floor(pd.read_csv(J / "spaceground" / "heuristic_nsfnet" / "nsfnet_raw.csv.gz"), S_MIN)
-    h = h[(h.ogs == 6) & (h.n_sat_links > 0)]
-    f = h[h.method == "FiSER"].set_index(["ti", "s", "d", "F_th"])
-    g = h[h.method == "H"].set_index(["ti", "s", "d", "F_th"]).reindex(f.index)
-    opt = (g.worst >= f.worst * (1 - 1e-6)) & f.served
+            short += s
+    raw = pd.read_csv(J / "spaceground" / "heuristic_nsfnet" / "nsfnet_raw.csv.gz")
+    raw = raw[(raw.ogs == 6) & (raw.n_sat_links > 0)]
+    key = ["ti", "s", "d", "F_th"]
+    f = apply_floor(raw, S_MIN).query("method == 'FiSER'").set_index(key)
+    g = apply_floor(raw, 0.0).query("method == 'H'").set_index(key).reindex(f.index)
+    s = _shortfalls(f.worst, g.worst)
+    rt = raw.groupby(["ti", "method"]).runtime.sum().unstack()
+    print(f"satellite snapshots: {_describe(s, int(f.served.sum()))}; per snapshot of "
+          f"{(raw.method == 'H').sum() // len(rt)} requests, median runtime H {rt.H.median():.1f} s and MILP "
+          f"{rt.FiSER.median():.1f} s; MILP/H over all snapshots {rt.FiSER.sum() / rt.H.sum():.1f}x")
     tot_served += int(f.served.sum())
-    tot_nonopt += int((f.served & ~opt).sum())
-    print(f"satellite snapshots: H optimal on {int(opt.sum())} of {int(f.served.sum())}")
-    print(f"all evaluations: H optimal on all but {tot_nonopt} of {tot_served} served requests")
+    short += s
+    missed = [(a, b) for a, b in short if b < S_MIN]
+    loss = max((1 - b / a for a, b in short if b >= S_MIN), default=0.0)
+    print(f"Sections VI-F and VI-G pooled: H optimal on all but {len(short)} of {tot_served} served instances; "
+          f"it fails to serve {len(missed)} (at {', '.join(f'{b / a:.2f}' for a, b in missed)} of the optimum) "
+          f"and loses at most {100 * loss:.1f}% on the others")
+    _rerun_missed(f.index[(f.worst >= S_MIN) & (g.worst.fillna(0.0) < S_MIN)], f.worst)
 
     meta = json.loads((J / "ground" / "params.json").read_text())
     P = PhysParams(**meta["phys"])

@@ -21,10 +21,10 @@ success probability guaranteed under any α intermediate-node or link failures. 
 as shared failure points, a weather-diversity rule, and finite memory coherence. We prove NP-completeness for
 every fixed α ≥ 1 and give a heuristic with exact purification. On three reference networks with a 10 pairs/s
 floor, FiSER serves up to 4.0× as many requests as a fidelity-unaware survivable design at thresholds of
-0.8–0.85, up to 13% more than purifying its paths afterwards, and up to 30% more than exact sequential selection
-under two failures. With 144 LEO satellites and GHz-class sources, the share of NSFNET requests servable at
-fidelity 0.85, each provisioned alone, rises from 46% to 87% in night-window snapshots. The heuristic is optimal
-on all but five of 12,101 served requests and up to 14× faster.
+0.8–0.85, up to 13% more than purifying its paths afterwards, and 30% more NSFNET requests than exact sequential
+selection under two failures. With 144 LEO satellites and GHz-class sources, the share of NSFNET requests
+servable at fidelity 0.85, each provisioned alone, rises from 46% to 87% in night-window snapshots. The heuristic
+is optimal on all but five of 12,101 served instances and up to 14× faster.
 
 ## Repository layout
 
@@ -139,7 +139,7 @@ service floor. Section, figure, and table numbers refer to the manuscript.
 | Robustness | never worse than any protected baseline; in some evaluated case, 10–21% more requests than each of B5, B2, B7, and B3 |
 | LEO satellites, each request provisioned alone | NSFNET at fidelity 0.85: 46% → 87% of requests servable in night-window snapshots with GHz-class sources; 82% if no weather front may cut all paths |
 | Memory coherence | 1-s memories cost at most six requests per network; 0.1-s memories cost up to 27% of the requests served at fidelity 0.8 |
-| Heuristic | optimal on all but 5 of 12,101 served requests and 2.7–14× faster than the MILP |
+| Heuristic | optimal on all but 5 of 12,101 served instances (2 fall below the floor, at one satellite snapshot) and 2.7–14× faster than the MILP |
 
 All shares are per request: each request is provisioned alone, as in the survivable designs of Oki et al., and
 the satellite shares hold at the sampled instants. Requests that compete for memories and satellite sources are
